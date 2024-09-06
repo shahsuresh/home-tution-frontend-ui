@@ -1,4 +1,5 @@
 import MinimumLayout from "../layout/MinimumLayout";
+import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
@@ -14,6 +15,10 @@ const guestRoutes = [
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
     ],
   },
