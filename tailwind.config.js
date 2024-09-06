@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xxl: "1600px", // Add a custom screen size 'xxl' with a minimum width of 1600px
+        xs: "360px", // Add another custom screen size 'xs' with a minimum width of 475px
+      },
+    },
   },
   plugins: [],
 };
