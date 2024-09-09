@@ -16,12 +16,57 @@ import { useNavigate } from "react-router-dom";
 
 const pages = [
   { id: 1, name: "Home", path: "/home" },
-  { id: 2, name: "Login", path: "/login" },
-  { id: 3, name: "About", path: "/about" },
+  { id: 2, name: "Tutor Login", path: "/login" },
+  { id: 3, name: "Request Tuition", path: "/contact-student" },
+  { id: 4, name: "About", path: "/about" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = [
+  { id: 1, name: "Profile" },
+  { id: 2, name: "Account" },
+  { id: 3, name: "Logout" },
+];
+//?========greeting message function=============
+const greetByTime = () => {
+  const timeNow = new Date().getHours();
 
+  let greeting;
+  if (timeNow < 12) {
+    greeting = "Good Morning";
+  } else if (timeNow >= 12 && timeNow < 17) {
+    greeting = "Good Afternoon";
+  } else if (timeNow >= 17 && timeNow < 20) {
+    greeting = "Good Evening";
+  } else {
+    greeting = "Good Evening";
+  }
+
+  return greeting;
+};
+//*==============================================
 const Header = () => {
+  //?=====Function to handle onClick Event on user Setting Menu========
+  const handleProfileSettingMenuClick = (item) => {
+    // console.log(`You clicked on: ${item.name}`);
+
+    if (item.name === "Logout") {
+      // Clears localStorage when user clicks logout button
+      localStorage.clear();
+      // And redirect to login page
+      navigate("/login");
+    }
+    if (item.name === "Profile") {
+      navigate("/teacher-profile");
+      console.log("Profile Menu");
+    }
+    if (item.name === "Account") {
+      console.log("Account Menu");
+    }
+  };
+  //*==================================================================
+  const userRole = localStorage.getItem("role");
+  const userFirstName = localStorage.getItem("firstName");
+  const userLastName = localStorage.getItem("lastName");
+
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -165,37 +210,64 @@ const Header = () => {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='User' src='user.png' />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {setting}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {userRole === "teacher" && (
+            <>
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title='Open settings'>
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt='User' src='user.png' />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id='menu-appbar'
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
+                      <Typography
+                        sx={{ textAlign: "center" }}
+                        onClick={
+                          () => handleProfileSettingMenuClick(setting)
+                          // setting.name === "Logout"
+                          //   ? () => {
+                          //       // Clears localStorage when user clicks logout button
+                          //       localStorage.clear();
+                          //       // And redirect to login page
+                          //       navigate("/login");
+                          //       console.log(setting.name);
+                          //     }
+                          //   : null
+                        }
+                      >
+                        {setting.name}
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+              <Box className='flex flex-col gap-0'>
+                <Typography className='pl-2'>
+                  Hi,
+                  {(userFirstName + " " + userLastName).toUpperCase()}
+                </Typography>
+                <Typography className='pl-5 text-[#0f0]'>
+                  {greetByTime()}
+                </Typography>
+              </Box>
+            </>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

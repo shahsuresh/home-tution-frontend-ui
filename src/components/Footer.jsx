@@ -75,7 +75,7 @@ const Footer = () => {
 
         {/* Contact Link */}
 
-        <Link to='/contact'>
+        <Link to='/contact-student'>
           <Typography
             variant='h5'
             sx={{
