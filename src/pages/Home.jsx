@@ -1,8 +1,9 @@
+import { Box } from "@mui/material";
 import React from "react";
 
 const Home = () => {
   console.log(import.meta.env.VITE_MYNAME);
-  return <div> My Name is {import.meta.env.VITE_MYNAME}</div>;
+  return <Box> My Name is {import.meta.env.VITE_MYNAME}</Box>;
 };
 
 export default Home;
