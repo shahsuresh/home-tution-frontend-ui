@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const snackbarSlice = createSlice({
-  name: "sanckbar",
+  name: "snackbar",
   initialState: {
     open: false,
     severity: "",
