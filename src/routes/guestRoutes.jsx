@@ -17,7 +17,7 @@ const guestRoutes = [
         element: <Register />,
       },
       {
-        path: "contact",
+        path: "contact-student",
         element: <Contact />,
       },
     ],
