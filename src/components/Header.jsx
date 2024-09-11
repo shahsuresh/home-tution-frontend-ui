@@ -58,6 +58,7 @@ const Header = () => {
       navigate("/teacher-dashboard");
     }
     if (item.name === "Profile") {
+      navigate("/teacher-profile");
       console.log("Profile Menu");
     }
   };
@@ -140,7 +141,7 @@ const Header = () => {
                     navigate(page.path);
                   }}
                 >
-                  <Typography className='text-center'>{page.name}</Typography>
+                  <Typography className='text-center '>{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -161,15 +162,16 @@ const Header = () => {
           >
             Namaste Home Tuition
           </Typography>
-          <Box className='flex-grow hidden md:flex'>
+          <Box className='flex-grow hidden px-1 md:flex'>
             {pages.map((page) => (
               <Button
                 size='large'
+                variant='outline'
                 key={page.id}
                 onClick={() => {
                   navigate(page.path);
                 }}
-                className='mx-2 text-white hover:bg-blue-700'
+                className='px-1 mx-3 text-white hover:bg-blue-700'
               >
                 {page.name}
               </Button>
