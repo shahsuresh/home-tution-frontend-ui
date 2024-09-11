@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import About from "../pages/About";
 import Home from "../pages/Home";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import TeacherProfile from "../pages/TeacherProfile";
 import TutionDetailsPage from "../pages/TutionDetailsPage";
 import TutionEditPage from "../pages/TutionEditPage";
 
@@ -34,6 +35,10 @@ const mainRoutes = [
       {
         path: "/tution/edit/:id",
         element: <TutionEditPage />,
+      },
+      {
+        path: "teacher-profile",
+        element: <TeacherProfile />,
       },
     ],
   },
