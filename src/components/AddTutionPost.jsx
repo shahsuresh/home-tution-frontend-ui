@@ -34,7 +34,7 @@ const AddTutionPost = () => {
     },
     onSuccess: (res) => {
       dispatch(openSuccessSnackbar(res?.data?.message));
-      navigate("/teacher-profile");
+      navigate("/teacher-dashboard");
     },
     onError: (error) => {
       dispatch(openErrorSnackbar(error?.data?.message));
@@ -170,7 +170,7 @@ const AddTutionPost = () => {
               >
                 Add
               </Button>
-              <Link to='/teacher-profile'>
+              <Link to='/teacher-dashboard'>
                 <Typography
                   variant='h6'
                   className='float-right p-1 text-blue-600 border-2 border-blue-400'

@@ -30,7 +30,7 @@ const Login = () => {
     },
     onSuccess: (res) => {
       dispatch(openSuccessSnackbar(res?.data?.message));
-      navigate("/teacher-profile");
+      navigate("/teacher-dashboard");
       // extract token, lastName and first name from login response
       const accessToken = res?.data?.accessToken;
       const firstName = res?.data?.teacherData?.firstName;
@@ -60,7 +60,7 @@ const Login = () => {
         >
           {(formik) => (
             <form
-              className='flex flex-col gap-2 p-3 mt-10 w-1/4 min-w-fit h-1/2 rounded-lg bg-gradient-to-r from-blue-40 shadow-xl shadow-blue-500/50 '
+              className='flex flex-col w-1/4 gap-2 p-3 mt-10 rounded-lg shadow-xl min-w-fit h-1/2 bg-gradient-to-r from-blue-40 shadow-blue-500/50 '
               onSubmit={formik.handleSubmit}
             >
               {isPending && <LinearProgress color='primary' />}

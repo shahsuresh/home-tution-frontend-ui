@@ -22,7 +22,7 @@ const pages = [
 ];
 const settings = [
   { id: 1, name: "Profile" },
-  { id: 2, name: "Account" },
+  { id: 2, name: "Dashboard" },
   { id: 3, name: "Logout" },
 ];
 //?========greeting message function=============
@@ -54,12 +54,11 @@ const Header = () => {
       // And redirect to login page
       navigate("/login");
     }
-    if (item.name === "Profile") {
-      navigate("/teacher-profile");
-      console.log("Profile Menu");
+    if (item.name === "Dashboard") {
+      navigate("/teacher-dashboard");
     }
-    if (item.name === "Account") {
-      console.log("Account Menu");
+    if (item.name === "Profile") {
+      console.log("Profile Menu");
     }
   };
   //*==================================================================
@@ -88,38 +87,25 @@ const Header = () => {
 
   return (
     //!==========FullScreen Appbar=======================
-    <AppBar position='static'>
+    <AppBar position='static' className='w-full px-4'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <img
             src='logo1.png'
             alt='logo'
-            style={{
-              width: "70px",
-              height: "auto",
-              display: { xs: "none", md: "flex" },
-              mr: 1,
-            }}
+            className='hidden w-16 h-auto mr-1 md:w-20 md:flex'
           />
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+
           <Typography
             variant='h4'
             noWrap
             component='a'
             href='#app-bar-with-responsive-menu'
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            className='hidden mr-2 font-mono font-bold tracking-wider text-white md:flex'
           >
             Namaste Home Tuition
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box className='flex-grow md:hidden'>
             <IconButton
               size='large'
               aria-label='account of current user'
@@ -127,6 +113,7 @@ const Header = () => {
               aria-haspopup='true'
               onClick={handleOpenNavMenu}
               color='inherit'
+              className='md:hidden'
             >
               <MenuIcon />
             </IconButton>
@@ -144,7 +131,7 @@ const Header = () => {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              className='block md:hidden'
             >
               {pages.map((page) => (
                 <MenuItem
@@ -153,9 +140,7 @@ const Header = () => {
                     navigate(page.path);
                   }}
                 >
-                  <Typography sx={{ textAlign: "center" }}>
-                    {page.name}
-                  </Typography>
+                  <Typography className='text-center'>{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -165,33 +150,18 @@ const Header = () => {
           {/* <img
             src='logo1.png'
             alt='logo'
-            style={{
-              width: "70px",
-              height: "auto",
-              display: { xs: "none", md: "flex", lg: "none" },
-              mr: 1,
-            }}
-          ></img> */}
+            className='w-10 h-auto mr-1 md:none sm:flex'
+          /> */}
           <Typography
             variant='h6'
             noWrap
             component='a'
             href='#app-bar-with-responsive-menu'
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              fontSize: { xs: "11px", md: "18px" },
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            className='flex flex-grow font-mono text-sm font-bold text-white md:hidden md:text-lg'
           >
             Namaste Home Tuition
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box className='flex-grow hidden md:flex'>
             {pages.map((page) => (
               <Button
                 size='large'
@@ -199,12 +169,7 @@ const Header = () => {
                 onClick={() => {
                   navigate(page.path);
                 }}
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  "&:hover": { backgroundColor: "#116bc5" },
-                }}
+                className='mx-2 text-white hover:bg-blue-700'
               >
                 {page.name}
               </Button>
@@ -212,9 +177,9 @@ const Header = () => {
           </Box>
           {userRole === "teacher" && (
             <>
-              <Box sx={{ flexGrow: 0 }}>
+              <Box className='flex-grow-0'>
                 <Tooltip title='Open settings'>
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <IconButton onClick={handleOpenUserMenu} className='p-0'>
                     <Avatar alt='User' src='user.png' />
                   </IconButton>
                 </Tooltip>
@@ -257,12 +222,12 @@ const Header = () => {
                   ))}
                 </Menu>
               </Box>
-              <Box className='flex flex-col gap-0'>
-                <Typography className='pl-2'>
+              <Box className='flex flex-col gap-0 pl-4'>
+                <Typography className='text-xs text-white md:text-base'>
                   Hi,
                   {(userFirstName + " " + userLastName).toUpperCase()}
                 </Typography>
-                <Typography className='pl-5 text-[#0f0]'>
+                <Typography className='text-xs text-green-400 md:text-base'>
                   {greetByTime()}
                 </Typography>
               </Box>

@@ -4,7 +4,7 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { useNavigate } from "react-router-dom";
 import TutionPostCard from "../components/TutionPostCard";
 
-const TeacherProfile = () => {
+const TeacherDashboard = () => {
   const userRole = localStorage.getItem("role");
   const navigate = useNavigate();
 
@@ -36,4 +36,4 @@ const TeacherProfile = () => {
   );
 };
 
-export default TeacherProfile;
+export default TeacherDashboard;

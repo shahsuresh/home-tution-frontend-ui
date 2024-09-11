@@ -41,123 +41,75 @@ const TutionPostCard = () => {
   const posts = data?.data?.posts;
   console.log(posts);
   console.log("Posts in PostCard", posts);
-  // const rows = [
-  //   {
-  //     id: 1,
-  //     name: "John Doe",
-  //     subjects: "Math",
-  //     class: "john@example.com",
-  //     price: 12000,
-  //     priceType: "Monthly",
-  //     status: "Pending",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "John Doe",
-  //     subjects: "Science",
-  //     class: "john@example.com",
-  //     price: 12000,
-  //     priceType: "Monthly",
-  //     status: "Pending",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "John Doe",
-  //     subjects: "English",
-  //     class: "john@example.com",
-  //     price: 12000,
-  //     priceType: "Monthly",
-  //     status: "Pending",
-  //   },
-  // ];
 
   return (
     <Box className='w-full'>
       <Box className='flex flex-row items-center justify-center gap-2 m-2'>
         {isPending && <CircularProgress size={60} />}
       </Box>
-      <TableContainer component={Paper}>
-        <Table aria-label='simple table'>
-          <TableHead style={{ border: "2px solid #1976D2" }}>
-            <TableRow>
-              <TableCell
-                style={{
-                  fontSize: "18px",
-                  color: "#1976D2",
-                  backgroundColor: "#DBEAFE",
-                }}
-              >
-                Sn.
-              </TableCell>
-              <TableCell style={{ fontSize: "18px", color: "#1976D2" }}>
-                Name
-              </TableCell>
-              <TableCell
-                style={{
-                  fontSize: "18px",
-                  color: "#1976D2",
-                  backgroundColor: "#DBEAFE",
-                }}
-              >
-                Subjects
-              </TableCell>
-              <TableCell style={{ fontSize: "18px", color: "#1976D2" }}>
-                Class
-              </TableCell>
-              <TableCell
-                style={{
-                  fontSize: "18px",
-                  color: "#1976D2",
-                  backgroundColor: "#DBEAFE",
-                }}
-              >
-                Price
-              </TableCell>
-              <TableCell style={{ fontSize: "18px", color: "#1976D2" }}>
-                Price Type
-              </TableCell>
-              <TableCell
-                style={{
-                  fontSize: "18px",
-                  color: "#1976D2",
-                  backgroundColor: "#DBEAFE",
-                }}
-              >
-                Status
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {posts.map((row, index) => (
-              <TableRow
-                key={row._id}
-                hover
-                onClick={() => handleRowClick(row._id)}
-                style={{
-                  cursor: "pointer",
-                  border: "2px solid green",
-                }}
-              >
-                <TableCell style={{ backgroundColor: "#DBEAFE" }}>
-                  {index + 1}
+      <Box className='w-full overflow-x-auto'>
+        <TableContainer component={Paper}>
+          <Table className='w-full min-w-[600px]'>
+            <TableHead style={{ border: "2px solid #1976D2" }}>
+              <TableRow>
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700 bg-blue-100'>
+                  Sn.
                 </TableCell>
-                <TableCell>{row.name}</TableCell>
-                <TableCell style={{ backgroundColor: "#DBEAFE" }}>
-                  {`${row.subjects} `}
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700'>
+                  Name
                 </TableCell>
-                <TableCell>{row.forClass}</TableCell>
-                <TableCell style={{ backgroundColor: "#DBEAFE" }}>
-                  {row.price}
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700 bg-blue-100'>
+                  Subjects
                 </TableCell>
-                <TableCell>{row.priceType}</TableCell>
-                <TableCell style={{ backgroundColor: "#DBEAFE" }}>
-                  {row.status}
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700'>
+                  Class
+                </TableCell>
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700 bg-blue-100'>
+                  Price
+                </TableCell>
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700'>
+                  Price Type
+                </TableCell>
+                <TableCell className='px-4 py-2 text-lg font-bold text-blue-700 bg-blue-100'>
+                  Status
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {posts.map((row, index) => (
+                <TableRow
+                  key={row._id}
+                  hover
+                  onClick={() => handleRowClick(row._id)}
+                  className='border-2 border-green-700 cursor-pointer hover:bg-blue-400'
+                >
+                  <TableCell className='px-4 py-2 text-sm bg-blue-100'>
+                    {index + 1}
+                  </TableCell>
+                  <TableCell className='px-4 py-2 text-sm'>
+                    {row.name}
+                  </TableCell>
+                  <TableCell className='px-4 py-2 text-sm bg-blue-100'>
+                    {row.subjects}
+                  </TableCell>
+                  <TableCell className='px-4 py-2 text-sm'>
+                    {row.forClass}
+                  </TableCell>
+                  <TableCell className='px-4 py-2 text-sm bg-blue-100'>
+                    {row.price}
+                  </TableCell>
+                  <TableCell className='px-4 py-2 text-sm'>
+                    {row.priceType}
+                  </TableCell>
+                  <TableCell className='px-4 py-2 text-sm bg-blue-100'>
+                    {row.status}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </Box>
   );
 };

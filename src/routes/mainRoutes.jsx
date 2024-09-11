@@ -2,7 +2,7 @@ import AddTutionPost from "../components/AddTutionPost";
 import MainLayout from "../layout/MainLayout";
 import About from "../pages/About";
 import Home from "../pages/Home";
-import TeacherProfile from "../pages/TeacherProfile";
+import TeacherDashboard from "../pages/TeacherDashboard";
 import TutionDetailsPage from "../pages/TutionDetailsPage";
 import TutionEditPage from "../pages/TutionEditPage";
 
@@ -20,8 +20,8 @@ const mainRoutes = [
         element: <About />,
       },
       {
-        path: "teacher-profile",
-        element: <TeacherProfile />,
+        path: "teacher-dashboard",
+        element: <TeacherDashboard />,
       },
       {
         path: "add-tuition",
