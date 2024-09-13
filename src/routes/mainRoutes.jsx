@@ -1,7 +1,11 @@
 import AddTutionPost from "../components/AddTutionPost";
 import MainLayout from "../layout/MainLayout";
 import About from "../pages/About";
+import AdminDashboard from "../pages/AdminDashboard";
+import AdminProfile from "../pages/AdminProfile";
+import AdminRegister from "../pages/AdminRegister";
 import Home from "../pages/Home";
+import LoginAdmin from "../pages/LoginAdmin";
 import TeacherDashboard from "../pages/TeacherDashboard";
 import TeacherProfile from "../pages/TeacherProfile";
 import TutionDetailsPage from "../pages/TutionDetailsPage";
@@ -39,6 +43,22 @@ const mainRoutes = [
       {
         path: "teacher-profile",
         element: <TeacherProfile />,
+      },
+      {
+        path: "admin-register",
+        element: <AdminRegister />,
+      },
+      {
+        path: "admin-login",
+        element: <LoginAdmin />,
+      },
+      {
+        path: "admin-dashboard",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "admin-profile",
+        element: <AdminProfile />,
       },
     ],
   },
