@@ -11,7 +11,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
 
 const pages = [
@@ -44,6 +43,11 @@ const greetByTime = () => {
 };
 //*==============================================
 const Header = () => {
+  //*====get userRole data from local Storage============
+  const userRole = localStorage.getItem("role");
+  const userFirstName = localStorage.getItem("firstName");
+  const userLastName = localStorage.getItem("lastName");
+
   //?=====Function to handle onClick Event on user Setting Menu========
   const handleProfileSettingMenuClick = (item) => {
     // console.log(`You clicked on: ${item.name}`);
@@ -51,21 +55,27 @@ const Header = () => {
     if (item.name === "Logout") {
       // Clears localStorage when user clicks logout button
       localStorage.clear();
-      // And redirect to login page
-      navigate("/login");
+      navigate("/home");
+      // if (userRole === "admin") {
+      //   navigate("/home");
+      // } else {
+      //   // And redirect to login page
+      //   navigate("/login");
+      // }
     }
+
     if (item.name === "Dashboard") {
-      navigate("/teacher-dashboard");
+      userRole === "admin"
+        ? navigate("/admin-dashboard")
+        : navigate("/teacher-dashboard");
     }
     if (item.name === "Profile") {
-      navigate("/teacher-profile");
-      console.log("Profile Menu");
+      userRole === "admin"
+        ? navigate("/admin-profile")
+        : navigate("/teacher-profile");
     }
   };
   //*==================================================================
-  const userRole = localStorage.getItem("role");
-  const userFirstName = localStorage.getItem("firstName");
-  const userLastName = localStorage.getItem("lastName");
 
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -177,7 +187,7 @@ const Header = () => {
               </Button>
             ))}
           </Box>
-          {userRole === "teacher" && (
+          {userRole === "teacher" || userRole === "admin" ? (
             <>
               <Box className='flex-grow-0'>
                 <Tooltip title='Open settings'>
@@ -234,7 +244,7 @@ const Header = () => {
                 </Typography>
               </Box>
             </>
-          )}
+          ) : null}
         </Toolbar>
       </Container>
     </AppBar>

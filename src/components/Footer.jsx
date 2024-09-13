@@ -73,6 +73,23 @@ const Footer = () => {
           </IconButton>
         </Stack>
 
+        {/* Admin Link */}
+
+        <Link to='/admin-register'>
+          <Typography
+            variant='body1'
+            sx={{
+              color: "white",
+              "&:hover": {
+                backgroundColor: "#116bc5",
+                textDecoration: "none",
+              },
+            }}
+          >
+            Admin
+          </Typography>
+        </Link>
+
         {/* Contact Link */}
 
         <Link to='/contact-student'>
