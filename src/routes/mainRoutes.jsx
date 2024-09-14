@@ -1,4 +1,6 @@
 import AddTutionPost from "../components/AddTutionPost";
+import AdminProfileUpdate from "../components/AdminProfileUpdate";
+import UpdateAdminPassword from "../components/UpdateAdminPassword";
 import MainLayout from "../layout/MainLayout";
 import About from "../pages/About";
 import AdminDashboard from "../pages/AdminDashboard";
@@ -59,6 +61,14 @@ const mainRoutes = [
       {
         path: "admin-profile",
         element: <AdminProfile />,
+      },
+      {
+        path: "admin-profile-update",
+        element: <AdminProfileUpdate />,
+      },
+      {
+        path: "admin-password-update",
+        element: <UpdateAdminPassword />,
       },
     ],
   },
