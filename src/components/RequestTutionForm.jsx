@@ -75,8 +75,12 @@ const RequestTutionForm = () => {
             >
               {isPending && <LinearProgress color='primary' />}
 
-              <Typography variant='h4' className='text-[#1976D2]'>
-                Request for new Tuition Class
+              <Typography
+                variant='h6'
+                className='text-[#feffff] bg-[#1976D2] p-1'
+              >
+                Ready to start your learning journey? Find the best tutor for
+                your needs today!
               </Typography>
 
               <Box className='flex flex-row gap-1'>

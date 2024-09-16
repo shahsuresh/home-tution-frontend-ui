@@ -6,12 +6,14 @@ import CustomSnackbar from "../pages/CustomSnackbar";
 
 const MinimumLayout = () => {
   return (
-    <>
+    <div className='flex flex-col min-h-screen'>
       <Header />
       <CustomSnackbar />
-      <Outlet />
+      <main className='flex-grow overflow-y-auto'>
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

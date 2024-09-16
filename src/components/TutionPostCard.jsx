@@ -90,7 +90,7 @@ const TutionPostCard = () => {
                     {row.name}
                   </TableCell>
                   <TableCell className='px-4 py-2 text-sm bg-blue-100'>
-                    {row.subjects}
+                    {row.subjects.join(" , ")}
                   </TableCell>
                   <TableCell className='px-4 py-2 text-sm'>
                     {row.forClass}
