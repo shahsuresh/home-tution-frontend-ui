@@ -15,9 +15,9 @@ const Footer = () => {
         backgroundColor: "#1976D2",
         borderTop: "1px solid #e7e7e7",
         textAlign: "center",
-        position: "fixed",
         bottom: 0,
         width: "100%",
+        position: "relative",
       }}
     >
       <Stack

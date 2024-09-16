@@ -15,8 +15,8 @@ import { useNavigate } from "react-router-dom";
 
 const pages = [
   { id: 1, name: "Home", path: "/home" },
-  { id: 2, name: "Tutor Login", path: "/login" },
-  { id: 3, name: "Request Tuition", path: "/contact-student" },
+  { id: 2, name: "Become a Tutor", path: "/login" },
+  { id: 3, name: "Find a Tutor", path: "/contact-student" },
   { id: 4, name: "About", path: "/about" },
 ];
 const settings = [
@@ -101,17 +101,19 @@ const Header = () => {
     <AppBar position='static' className='w-full px-4'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <img
-            src='logo1.png'
-            alt='logo'
-            className='hidden w-16 h-auto mr-1 md:w-20 md:flex'
-          />
+          <a href='/home'>
+            <img
+              src='logo1.png'
+              alt='logo'
+              className='hidden w-16 h-auto mr-1 md:w-20 md:flex'
+            />
+          </a>
 
           <Typography
             variant='h4'
             noWrap
             component='a'
-            href='#app-bar-with-responsive-menu'
+            href='/home'
             className='hidden mr-2 font-mono font-bold tracking-wider text-white md:flex'
           >
             Namaste Home Tuition
@@ -167,7 +169,7 @@ const Header = () => {
             variant='h6'
             noWrap
             component='a'
-            href='#app-bar-with-responsive-menu'
+            href='/home'
             className='flex flex-grow font-mono text-sm font-bold text-white md:hidden md:text-lg'
           >
             Namaste Home Tuition

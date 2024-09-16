@@ -1,13 +1,17 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import Testimonials from "../components/Testimonials";
 
 const Home = () => {
-  console.log(import.meta.env.VITE_MYNAME);
+  // console.log(import.meta.env.VITE_MYNAME);
   return (
-    <Box>
-      My Name is {import.meta.env.VITE_MYNAME}
-      <Typography variant='h3'>HOME</Typography>
-    </Box>
+    <div>
+      <Hero />
+      <Features />
+      <Testimonials />
+    </div>
   );
 };
 
