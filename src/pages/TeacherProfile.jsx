@@ -70,14 +70,14 @@ const TeacherProfile = () => {
             <span className='font-semibold text-blue-600'>Email:</span> {email}
           </Typography>
           <Typography className='text-lg'>
-            <span className='font-semibold text-blue-600'>Degree:</span>{" "}
+            <span className='font-semibold text-blue-600'>Degree:</span>
             {degree}
           </Typography>
-          <Typography className='text-lg'>
+          <Typography className='text-lg text-pink-800'>
             <span className='font-semibold text-blue-600'>
               Interested Subjects:
-            </span>{" "}
-            {subjects}
+            </span>
+            {subjects.join(", ")}
           </Typography>
           <Typography className='text-lg'>
             <span className='font-semibold text-blue-600'>Level:</span> {level}

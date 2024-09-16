@@ -1,9 +1,4 @@
-import {
-  QueryClient,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import $axios from "../lib/axios/axios.instance";
 import {
@@ -68,7 +63,7 @@ const TutionDetailsPage = () => {
     },
     onSuccess: async () => {
       queryClient.invalidateQueries("get-tution-posts");
-      navigate(`/teacher-profile`);
+      navigate(`/teacher-dashboard`);
     },
     deleteError: (error) => {
       console.error("Failed to delete item:", error);
@@ -141,7 +136,6 @@ const TutionDetailsPage = () => {
                 window.confirm("Are you sure you want to delete this item?")
               ) {
                 deleteMutate(postData._id); // Trigger delete mutation
-                navigate(`/teacher-profile`);
               }
             }}
           >
