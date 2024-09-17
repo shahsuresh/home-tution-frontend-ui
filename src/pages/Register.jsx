@@ -43,7 +43,7 @@ const Register = () => {
   });
   return (
     <>
-      <Box className='flex flex-col items-center justify-center'>
+      <Box className='flex flex-col items-center justify-center bg-gradient-to-r from-indigo-100 via-purple-100 to-cyan-200'>
         <Formik
           initialValues={{
             firstName: "",
@@ -68,7 +68,7 @@ const Register = () => {
         >
           {(formik) => (
             <form
-              className='flex flex-col gap-2 p-3 mt-10 w-1/3 min-w-fit h-auto rounded-lg bg-gradient-to-r from-blue-40 shadow-xl shadow-blue-500/50 mb-10'
+              className='flex flex-col w-1/3 h-auto gap-2 p-3 mt-10 mb-10 rounded-lg shadow-xl min-w-fit bg-gradient-to-r from-blue-40 shadow-blue-500/50'
               onSubmit={formik.handleSubmit}
             >
               {isPending && <LinearProgress color='primary' />}

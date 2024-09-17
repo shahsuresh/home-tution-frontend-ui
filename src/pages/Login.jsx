@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <>
-      <Box className='flex flex-col items-center justify-center'>
+      <Box className='flex flex-col items-center justify-center h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-cyan-200'>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={teacherLoginValidationSchema}
@@ -60,7 +60,7 @@ const Login = () => {
         >
           {(formik) => (
             <form
-              className='flex flex-col w-1/4 gap-2 p-3 mt-10 rounded-lg shadow-xl min-w-fit h-1/2 bg-gradient-to-r from-blue-40 shadow-blue-500/50 '
+              className='flex flex-col w-1/4 gap-2 p-3 mt-10 rounded-lg shadow-xl min-w-fit h-2/5 bg-gradient-to-r from-blue-40 shadow-blue-500/50 '
               onSubmit={formik.handleSubmit}
             >
               {isPending && <LinearProgress color='primary' />}

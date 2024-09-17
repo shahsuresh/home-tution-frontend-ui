@@ -40,7 +40,7 @@ const RequestTutionForm = () => {
   });
   return (
     <>
-      <Box className='flex flex-col items-center justify-center'>
+      <Box className='flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-50'>
         <Formik
           initialValues={{
             firstName: "",
