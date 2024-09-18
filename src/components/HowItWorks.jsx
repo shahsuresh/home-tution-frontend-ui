@@ -27,7 +27,7 @@ const HowItWorks = () => {
     <>
       <hr className='w-full h-[2px]' />
       <div className='py-12 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200'>
-        <h2 className='p-4 mt-1 mb-8 text-4xl font-bold text-center text-gray-800 '>
+        <h2 className='p-4 mt-1 mb-8 text-4xl font-bold leading-snug text-center text-transparent font-manrope bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-500 to-purple-600 '>
           How It Works
         </h2>
         <div className='flex flex-wrap justify-center gap-8 px-4'>

@@ -36,7 +36,7 @@ const Hero = () => {
           <Button
             sx={{ border: "2px solid white", color: "greenyellow" }}
             variant='outlined'
-            className=' hover:text-white'
+            className='hover:bg-white hover:bg-opacity-15 hover:text-white'
             onClick={() => {
               navigate("/contact-student");
             }}
