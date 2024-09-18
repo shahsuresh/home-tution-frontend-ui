@@ -18,6 +18,7 @@ const pages = [
   { id: 2, name: "Become a Tutor", path: "/login" },
   { id: 3, name: "Find a Tutor", path: "/contact-student" },
   { id: 4, name: "About", path: "/about" },
+  { id: 5, name: "Contact", path: "/contactus-form" },
 ];
 const settings = [
   { id: 1, name: "Profile" },

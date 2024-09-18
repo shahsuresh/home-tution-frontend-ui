@@ -3,7 +3,7 @@ import { Box, Stack, Typography, IconButton } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import PhoneIcon from "@mui/icons-material/Phone";
 const Footer = () => {
   const navigate = useNavigate();
   return (
@@ -32,7 +32,6 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Namaste Home Tuition. All rights
           reserved.
         </Typography>
-
         {/* Social Media Icons */}
         <Stack direction='row' spacing={1}>
           <IconButton
@@ -73,8 +72,12 @@ const Footer = () => {
           </IconButton>
         </Stack>
 
-        {/* Admin Link */}
+        <Stack direction={"row"} gap={1}>
+          <PhoneIcon sx={{ color: "white" }} />
+          <Typography className='text-white'>+977-9705900600</Typography>
+        </Stack>
 
+        {/* Admin Link */}
         <Link to='/admin-register'>
           <Typography
             variant='body1'
@@ -89,10 +92,8 @@ const Footer = () => {
             Admin
           </Typography>
         </Link>
-
         {/* Contact Link */}
-
-        <Link to='/contact-student'>
+        <Link to='/contactus-form'>
           <Typography
             variant='h5'
             sx={{
