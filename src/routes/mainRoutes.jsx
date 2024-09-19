@@ -6,6 +6,7 @@ import About from "../pages/About";
 import AdminDashboard from "../pages/AdminDashboard";
 import AdminProfile from "../pages/AdminProfile";
 import AdminRegister from "../pages/AdminRegister";
+import ContactFormData from "../pages/ContactFormData";
 import Home from "../pages/Home";
 import LoginAdmin from "../pages/LoginAdmin";
 import TeacherDashboard from "../pages/TeacherDashboard";
@@ -69,6 +70,10 @@ const mainRoutes = [
       {
         path: "admin-password-update",
         element: <UpdateAdminPassword />,
+      },
+      {
+        path: "admin-profile/contact-form-data",
+        element: <ContactFormData />,
       },
     ],
   },
