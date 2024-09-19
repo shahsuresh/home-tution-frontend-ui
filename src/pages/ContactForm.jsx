@@ -201,6 +201,7 @@ const ContactForm = () => {
                 type='submit'
                 variant='contained'
                 color='primary'
+                disabled={isPending}
                 className='w-full h-16 mt-5'
                 sx={{
                   transition: "transform 0.2s",
