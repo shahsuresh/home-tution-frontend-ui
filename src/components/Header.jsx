@@ -23,7 +23,8 @@ const pages = [
 const settings = [
   { id: 1, name: "Profile" },
   { id: 2, name: "Dashboard" },
-  { id: 3, name: "Logout" },
+  { id: 3, name: "Contact Form Data" },
+  { id: 4, name: "Logout" },
 ];
 //?========greeting message function=============
 const greetByTime = () => {
@@ -48,6 +49,10 @@ const Header = () => {
   const userRole = localStorage.getItem("role");
   const userFirstName = localStorage.getItem("firstName");
   const userLastName = localStorage.getItem("lastName");
+  //?====filter settings array based on userRole=======================
+  const filteredSettingsArray =
+    userRole === "admin" ? settings : settings.filter((item) => item.id !== 3);
+  // console.log(filteredSettingsArray);
 
   //?=====Function to handle onClick Event on user Setting Menu========
   const handleProfileSettingMenuClick = (item) => {
@@ -74,6 +79,11 @@ const Header = () => {
       userRole === "admin"
         ? navigate("/admin-profile")
         : navigate("/teacher-profile");
+    }
+    if (item.name === "Contact Form Data") {
+      userRole === "admin"
+        ? navigate("/admin-profile/contact-form-data")
+        : null;
     }
   };
   //*==================================================================
@@ -214,7 +224,7 @@ const Header = () => {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  {settings.map((setting) => (
+                  {filteredSettingsArray.map((setting) => (
                     <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
                       <Typography
                         sx={{ textAlign: "center" }}
