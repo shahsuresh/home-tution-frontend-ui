@@ -11,6 +11,7 @@ import {
   Paper,
   LinearProgress,
   Typography,
+  Button,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -129,7 +130,10 @@ const ContactFormData = () => {
                 Status
               </TableCell>
               <TableCell sx={{ fontSize: "1.4rem", color: "white" }}>
-                Action
+                Update Status
+              </TableCell>
+              <TableCell sx={{ fontSize: "1.4rem", color: "white" }}>
+                Delete
               </TableCell>
             </TableRow>
           </TableHead>
@@ -158,7 +162,24 @@ const ContactFormData = () => {
                   {row.status}
                 </TableCell>
                 <TableCell>
-                  <IconButton
+                  <Button
+                    variant='contained'
+                    color='secondary'
+                    endIcon={<EditIcon />}
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          "Are you sure you want to update status?"
+                        )
+                      ) {
+                        mutate(row._id);
+                      }
+                    }}
+                    disabled={isPending}
+                  >
+                    update status
+                  </Button>
+                  {/* <IconButton
                     aria-label='update'
                     color='primary'
                     className='text-white'
@@ -174,7 +195,9 @@ const ContactFormData = () => {
                     disabled={isPending}
                   >
                     <EditIcon />
-                  </IconButton>
+                  </IconButton> */}
+                </TableCell>
+                <TableCell>
                   <IconButton
                     aria-label='delete'
                     color='secondary'

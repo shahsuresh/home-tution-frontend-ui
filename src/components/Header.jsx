@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const pages = [
   { id: 1, name: "Home", path: "/home" },
-  { id: 2, name: "Become a Tutor", path: "/login" },
+  { id: 2, name: "Become a Tutor", path: "/register" },
   { id: 3, name: "Find a Tutor", path: "/contact-student" },
   { id: 4, name: "About", path: "/about" },
   { id: 5, name: "Contact", path: "/contactus-form" },

@@ -175,7 +175,7 @@ const AddTutionPost = () => {
                   variant='h6'
                   className='float-right p-1 text-blue-600 border-2 border-blue-400'
                 >
-                  Go to your profile
+                  Go to your Dashboard
                 </Typography>
               </Link>
             </form>
