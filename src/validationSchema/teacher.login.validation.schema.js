@@ -57,3 +57,22 @@ export const teacherLoginValidationSchema = Yup.object({
     .email("Must be a valid email"),
   password: Yup.string().required("Password is required"),
 });
+
+//?============== update admin password validation=====================
+
+export const updateTeacherPasswordValidationSchema = Yup.object({
+  currentPassword: Yup.string()
+    .required("your current password is required")
+    .trim()
+    .max(20, "your current password must be at max 20 characters."),
+  newPassword: Yup.string()
+    .required("your new password is required")
+    .min(6, "password must be of min 6 characters")
+    .max(20, "password must be at max 20 characters.")
+    .trim(),
+  conformNewPassword: Yup.string()
+    .required("Please confirm your password")
+    .min(6, "password must be of min 6 characters")
+    .max(20, "password must be at max 20 characters.")
+    .oneOf([Yup.ref("newPassword"), null], "Passwords must match"),
+});

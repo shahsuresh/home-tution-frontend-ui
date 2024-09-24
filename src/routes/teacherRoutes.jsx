@@ -1,4 +1,5 @@
 import AddTutionPost from "../components/AddTutionPost";
+import ChangeTeacherPassword from "../components/ChangeTeacherPassword";
 import TeacherGuard from "../guard/TeacherGuard";
 import MainLayout from "../layout/MainLayout";
 import TeacherDashboard from "../pages/TeacherDashboard";
@@ -34,6 +35,10 @@ const teacherRoutes = [
       {
         path: "teacher-profile",
         element: <TeacherProfile />,
+      },
+      {
+        path: "teacher-profile/change-password",
+        element: <ChangeTeacherPassword />,
       },
     ],
   },

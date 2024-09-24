@@ -3,8 +3,10 @@ import { Box, Typography, Paper, Button } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useQuery } from "@tanstack/react-query";
 import $axios from "../lib/axios/axios.instance";
+import { useNavigate } from "react-router-dom";
 
 const TeacherProfile = () => {
+  const navigate = useNavigate();
   // Fetch Teacher profile data from the API
   const { isLoading, error, data } = useQuery({
     queryKey: ["teacher-profile"],
@@ -92,7 +94,14 @@ const TeacherProfile = () => {
             <span className='font-semibold text-blue-600'>User Since:</span>{" "}
             {new Date(createdAt).toLocaleDateString()}
           </Typography>
-          <Button variant='contained' fullWidth className='mt-4'>
+          <Button
+            variant='contained'
+            fullWidth
+            className='mt-4'
+            onClick={() => {
+              navigate("/teacher-profile/change-password");
+            }}
+          >
             Change Password
           </Button>
         </Box>
