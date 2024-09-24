@@ -10,11 +10,12 @@ const Footer = () => {
     <Box
       component='footer'
       sx={{
-        py: 1,
+        py: 2,
         px: 1,
         backgroundColor: "#1976D2",
         borderTop: "1px solid #e7e7e7",
         textAlign: "center",
+        margin: 0,
         bottom: 0,
         width: "100%",
         position: "relative",
