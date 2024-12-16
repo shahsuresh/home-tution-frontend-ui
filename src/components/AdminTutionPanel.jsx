@@ -40,7 +40,7 @@ const AdminTutionPanel = () => {
   } = useMutation({
     mutationKey: ["delete-tuition-data-by-admin"],
     mutationFn: async (id) => {
-      console.log("DELETE TUITION BY ID", id);
+      // console.log("DELETE TUITION BY ID", id);
       return await $axios.delete(`/admin/profile/tution/delete/${id}`);
     },
     onSuccess: (res) => {
