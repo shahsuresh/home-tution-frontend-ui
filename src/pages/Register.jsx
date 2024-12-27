@@ -33,12 +33,12 @@ const Register = () => {
     },
     onSuccess: (res) => {
       dispatch(openSuccessSnackbar(res?.data?.message));
-      console.log(res.data.message);
+      // console.log(res.data.message);
       navigate("/login");
     },
     onError: (error) => {
       dispatch(openErrorSnackbar(error?.response?.data?.message));
-      console.log("Error", error?.response?.data?.message);
+      // console.log("Error", error?.response?.data?.message);
     },
   });
   return (
