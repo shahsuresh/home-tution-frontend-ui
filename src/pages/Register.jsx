@@ -37,8 +37,8 @@ const Register = () => {
       navigate("/login");
     },
     onError: (error) => {
-      dispatch(openErrorSnackbar(error?.message));
-      console.log("Error", error);
+      dispatch(openErrorSnackbar(error?.response?.data?.message));
+      console.log("Error", error?.response?.data?.message);
     },
   });
   return (
