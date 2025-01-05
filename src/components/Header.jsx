@@ -45,6 +45,8 @@ const greetByTime = () => {
 };
 //*==============================================
 const Header = () => {
+  const [isNavVisible, setIsNavVisible] = React.useState(true); // Add this state
+
   //*====get userRole data from local Storage============
   const userRole = localStorage.getItem("role");
   const userFirstName = localStorage.getItem("firstName");
@@ -119,16 +121,17 @@ const Header = () => {
               className='hidden w-16 h-auto mr-1 md:w-20 md:flex'
             />
           </a>
-
           <Typography
             variant='h4'
             noWrap
             component='a'
             href='/home'
-            className='hidden mr-2 font-mono font-bold tracking-wider text-white md:flex'
+            className='hidden mr-2 font-mono text-lg font-bold tracking-wider text-white md:flex md:text-sm lg:text-lg'
           >
-            Namaste Home Tuition
+            Ghar Shiksha Nepal
           </Typography>
+
+          {/* //#=================mobile nav menu items==================  */}
           <Box className='flex-grow md:hidden'>
             <IconButton
               size='large'
@@ -162,6 +165,7 @@ const Header = () => {
                   key={page.id}
                   onClick={() => {
                     navigate(page.path);
+                    handleCloseNavMenu();
                   }}
                 >
                   <Typography className='text-center '>{page.name}</Typography>
@@ -169,13 +173,13 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          {/* //!==========Drawer Screen======================= */}
+          {/* //!==========Mobile Nav Menu Screen======================= */}
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          {/* <img
+          <img
             src='logo1.png'
             alt='logo'
-            className='w-10 h-auto mr-1 md:none sm:flex'
-          /> */}
+            className='w-10 h-auto mr-1 md:hidden sm:flex'
+          />
           <Typography
             variant='h6'
             noWrap
@@ -183,8 +187,9 @@ const Header = () => {
             href='/home'
             className='flex flex-grow font-mono text-sm font-bold text-white md:hidden md:text-lg'
           >
-            Namaste Home Tuition
+            Ghar Shiksha Nepal
           </Typography>
+          {/* //#=================full page nav menu items==================  */}
           <Box className='flex-grow hidden px-1 md:flex'>
             {pages.map((page) => (
               <Button
@@ -200,6 +205,7 @@ const Header = () => {
               </Button>
             ))}
           </Box>
+          {/* //#========================User Setting Menu======================== */}
           {userRole === "teacher" || userRole === "admin" ? (
             <>
               <Box className='flex-grow-0'>
@@ -247,6 +253,7 @@ const Header = () => {
                   ))}
                 </Menu>
               </Box>
+              {/* //#============User Name & Greeting Message================ */}
               <Box className='flex flex-col gap-0 pl-4'>
                 <Typography className='text-xs text-white md:text-base'>
                   Hi,
