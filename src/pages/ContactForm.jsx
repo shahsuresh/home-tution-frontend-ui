@@ -70,10 +70,10 @@ const ContactForm = () => {
           <p className='text-center'>We&apos;re here to help!</p>
           <hr />
         </p>
-        <p className='text-2xl'>NAMASTE HOME TUITION</p>
+        <p className='text-2xl'>GHARSHIKSHANEPAL.COM</p>
         <div className='flex items-center mb-4 text-lg'>
           <EmailIcon className='mr-2 ' />
-          <p className='text-xl'>contact@namastehometuition.com</p>
+          <p className='text-xl'>contact@gharshikshanepal.com</p>
         </div>
         <div className='flex items-center text-xl'>
           <PhoneIcon className='mr-2' />
@@ -138,7 +138,7 @@ const ContactForm = () => {
           validationSchema={contactFormValidationSchema}
           onSubmit={(values, { resetForm }) => {
             mutate(values);
-            console.log(values);
+            // console.log(values);
             resetForm();
           }}
         >

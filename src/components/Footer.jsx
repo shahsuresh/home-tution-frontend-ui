@@ -30,7 +30,7 @@ const Footer = () => {
       >
         {/* Copyright */}
         <Typography variant='h6' color='white' sx={{ fontFamily: "monospace" }}>
-          &copy; {new Date().getFullYear()} Namaste Home Tuition. All rights
+          &copy; {new Date().getFullYear()} gharshikshanepal.com All rights
           reserved.
         </Typography>
         {/* Social Media Icons */}

@@ -46,7 +46,7 @@ const ContactFormData = () => {
       return await $axios.put(`/contact-form/data/update/${id}`);
     },
     onSuccess: (res) => {
-      console.log(res);
+      // console.log(res);
       dispatch(openSuccessSnackbar(res?.data?.message));
       queryClient.invalidateQueries("get-contact-form-data");
     },
@@ -63,7 +63,7 @@ const ContactFormData = () => {
       return await $axios.delete(`/contact-form/data/delete/${id}`);
     },
     onSuccess: (res) => {
-      console.log(res.data.message);
+      // console.log(res.data.message);
       dispatch(openErrorSnackbar(res?.data?.message));
       queryClient.invalidateQueries("get-contact-form-data");
     },
@@ -85,7 +85,7 @@ const ContactFormData = () => {
       </Typography>
     );
   }
-  console.log(formData);
+  // console.log(formData);
   return (
     <div className='p-4'>
       <TableContainer

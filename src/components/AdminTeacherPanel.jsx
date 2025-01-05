@@ -79,7 +79,7 @@ const AdminTeacherPanel = () => {
   }
 
   const teacherList = data?.data?.teacherList;
-  console.log("Teacher Data", teacherList);
+  // console.log("Teacher Data", teacherList);
   if (!teacherList) {
     return (
       <div className='text-center'>

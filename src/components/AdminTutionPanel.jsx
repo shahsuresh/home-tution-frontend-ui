@@ -100,7 +100,7 @@ const AdminTutionPanel = () => {
       </Box>
     );
   }
-  console.log("tution data", data?.data?.tuitionList);
+  // console.log("tution data", data?.data?.tuitionList);
   const tutionList = data?.data?.tuitionList;
   if (!tutionList) {
     return (
