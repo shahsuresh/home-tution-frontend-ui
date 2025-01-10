@@ -30,7 +30,16 @@ export const registerTeacherValidationSchema = Yup.object({
       ["+2", "Bachelor", "Master", "PHD"],
       "Degree must be +2,Bachelor,Master or PHD."
     ),
-  subjects: Yup.string().required("Subject is required"),
+  subjects: Yup.mixed()
+    .test(
+      "is-string-or-array",
+      "Subjects must be a string or an array",
+      (value) => {
+        return typeof value === "string" || Array.isArray(value);
+      }
+    )
+    .required("Subjects are required"),
+
   level: Yup.string()
     .required("For which level of student you want to teach")
     .oneOf(["SEE", "+2", "Bachelor"], "Level must be SEE or +2 or Bachelor")

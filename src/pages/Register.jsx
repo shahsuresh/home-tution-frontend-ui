@@ -58,12 +58,26 @@ const Register = () => {
             area: "",
           }}
           validationSchema={registerTeacherValidationSchema}
-          onSubmit={(values) => {
-            const subjectsArray = values.subjects
-              .split(",")
-              .map((subject) => subject.trim());
-            values.subjects = subjectsArray;
-            mutate(values);
+          onSubmit={(values, { setSubmitting, setFieldValue }) => {
+            try {
+              // Convert subjects to an array
+              const subjectsArray = values.subjects
+                .split(",")
+                .map((subject) => subject.trim());
+              values.subjects = subjectsArray;
+
+              // Submit the form
+              mutate(values, {
+                onError: () => {
+                  // Revert subjects to a string on error
+                  setFieldValue("subjects", subjectsArray.join(","));
+                },
+              });
+            } catch (error) {
+              console.error("Submission error:", error);
+            } finally {
+              setSubmitting(false);
+            }
           }}
         >
           {(formik) => (
