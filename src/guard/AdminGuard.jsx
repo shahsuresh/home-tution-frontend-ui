@@ -8,7 +8,7 @@ const AdminGuard = (props) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Define the allowed routes for teachers
+    // Define the allowed routes for admin
 
     const adminRoutes = [
       "/admin-dashboard",
