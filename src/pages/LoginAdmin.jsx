@@ -98,7 +98,7 @@ const LoginAdmin = () => {
                 Login
               </Button>
 
-              <Link to='/register'>
+              <Link to='/admin-register'>
                 <Typography variant='h6' className='text-blue-600'>
                   New here? Register
                 </Typography>
