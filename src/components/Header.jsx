@@ -231,22 +231,24 @@ const Header = () => {
                   onClose={handleCloseUserMenu}
                 >
                   {filteredSettingsArray.map((setting) => (
-                    <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-                      <Typography
-                        sx={{ textAlign: "center" }}
-                        onClick={
-                          () => handleProfileSettingMenuClick(setting)
-                          // setting.name === "Logout"
-                          //   ? () => {
-                          //       // Clears localStorage when user clicks logout button
-                          //       localStorage.clear();
-                          //       // And redirect to login page
-                          //       navigate("/login");
-                          //       console.log(setting.name);
-                          //     }
-                          //   : null
-                        }
-                      >
+                    <MenuItem
+                      key={setting.id}
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "rgba(0, 123, 255, 0.1)", // Light blue background on hover
+                          color: "#007bff",
+                          transform: "scale(1.1)",
+                        },
+                        transition: "all 0.2s ease-in-out",
+                      }}
+                      onClick={() => {
+                        handleCloseUserMenu(); // Close the menu first
+                        setTimeout(() => {
+                          handleProfileSettingMenuClick(setting); // Navigate after a small delay
+                        }, 200); // 200ms delay
+                      }}
+                    >
+                      <Typography sx={{ textAlign: "center" }}>
                         {setting.name}
                       </Typography>
                     </MenuItem>
