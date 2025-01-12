@@ -22,7 +22,7 @@ import { adminLoginDataValidationSchema } from "../validationSchema/admin.valida
 const LoginAdmin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //?=== hit teacher login api =======
+  //?=== hit admin login api =======
   const { isPending, mutate } = useMutation({
     mutationKey: ["login-admin"],
     mutationFn: async (values) => {
@@ -44,7 +44,7 @@ const LoginAdmin = () => {
     },
     onError: (error) => {
       dispatch(openErrorSnackbar(error?.response?.data?.message));
-      //   console.log(error);
+      //  console.log(error);
     },
   });
 
