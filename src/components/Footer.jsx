@@ -4,6 +4,7 @@ import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
 const Footer = () => {
   const navigate = useNavigate();
   return (
@@ -29,7 +30,11 @@ const Footer = () => {
         sx={{ maxWidth: "1200px", margin: "auto" }}
       >
         {/* Copyright */}
-        <Typography variant='h6' color='white' sx={{ fontFamily: "monospace" }}>
+        <Typography
+          variant='h6'
+          color='white'
+          sx={{ fontFamily: "monospace", textWrap: "noWrap" }}
+        >
           &copy; {new Date().getFullYear()} gharshikshanepal.com All rights
           reserved.
         </Typography>
@@ -73,9 +78,15 @@ const Footer = () => {
           </IconButton>
         </Stack>
 
-        <Stack direction={"row"} gap={1}>
+        <Stack direction={"row"} gap={1} style={{ textWrap: "noWrap" }}>
           <PhoneIcon sx={{ color: "white" }} />
-          <Typography className='text-white'>+977-9705900600</Typography>
+          <Typography className='text-white '>+977-9705900600</Typography>
+        </Stack>
+        <Stack direction={"row"} gap={1} style={{ textWrap: "noWrap" }}>
+          <EmailIcon sx={{ color: "white" }} />
+          <Typography className='text-white'>
+            contact@gharshikshanepal.com
+          </Typography>
         </Stack>
 
         {/* Admin Link */}
@@ -91,21 +102,6 @@ const Footer = () => {
             }}
           >
             Admin
-          </Typography>
-        </Link>
-        {/* Contact Link */}
-        <Link to='/contactus-form'>
-          <Typography
-            variant='h5'
-            sx={{
-              color: "white",
-              "&:hover": {
-                backgroundColor: "#116bc5",
-                textDecoration: "none",
-              },
-            }}
-          >
-            Contact Us
           </Typography>
         </Link>
       </Stack>
